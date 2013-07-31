@@ -54,6 +54,8 @@
           clearTimeout($target.data('timeoutId'));
 
           var settings = $.extend({}, self.settings, self.data_options($(this)));
+
+          self.close.call(self, $('[data-dropdown-content]')); //Close any other currently open dropdowns
           if (settings.is_hover) self.open.call(self, $target, $this);
         })
         .on('mouseleave', '[data-dropdown]', function (e) {
